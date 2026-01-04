@@ -1,0 +1,641 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Space+Grotesk:wght@400;500;600&display=swap");
+
+:root {
+  color-scheme: light;
+  font-family: "Space Grotesk", sans-serif;
+  --ink: #1a1a1a;
+  --cream: #f6efe4;
+  --sand: #f1d9b6;
+  --rose: #e9a07a;
+  --olive: #5c5a3a;
+  --shadow: 0 24px 60px rgba(26, 26, 26, 0.12);
+}
+
+.page {
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #fbe8d2, #f6efe4 55%, #f3e0c6);
+  color: var(--ink);
+  padding: 32px 6vw 48px;
+  position: relative;
+  overflow: hidden;
+}
+
+.page::before,
+.page::after {
+  content: "";
+  position: absolute;
+  width: 360px;
+  height: 360px;
+  border-radius: 50%;
+  background: rgba(233, 160, 122, 0.25);
+  filter: blur(0px);
+  z-index: 0;
+}
+
+.page::before {
+  top: -120px;
+  right: -80px;
+}
+
+.page::after {
+  bottom: -140px;
+  left: -120px;
+  background: rgba(92, 90, 58, 0.18);
+}
+
+.topbar,
+.content,
+.footer {
+  position: relative;
+  z-index: 1;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.brand-mark {
+  font-family: "Fraunces", serif;
+  font-size: 1.6rem;
+  letter-spacing: 0.02em;
+}
+
+.brand-sub {
+  font-size: 0.95rem;
+  color: rgba(26, 26, 26, 0.6);
+}
+
+.topbar-actions {
+  display: flex;
+  gap: 12px;
+}
+
+button {
+  border: none;
+  border-radius: 999px;
+  padding: 12px 22px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: var(--olive);
+  color: #fff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 10px 24px rgba(92, 90, 58, 0.22);
+}
+
+button:hover {
+  transform: translateY(-1px);
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+button.ghost {
+  background: transparent;
+  color: var(--olive);
+  border: 1px solid rgba(92, 90, 58, 0.25);
+  box-shadow: none;
+}
+
+button.ghost.danger {
+  color: #a12a2a;
+  border-color: rgba(161, 42, 42, 0.35);
+}
+
+button.danger {
+  background: #b33232;
+  color: #fff;
+  box-shadow: 0 10px 24px rgba(179, 50, 50, 0.22);
+}
+
+.content {
+  display: grid;
+  grid-template-columns: minmax(280px, 1.1fr) minmax(320px, 1fr);
+  gap: 32px;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  animation: fadeInUp 0.6s ease;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.75rem;
+  color: rgba(26, 26, 26, 0.6);
+}
+
+.hero h1 {
+  font-family: "Fraunces", serif;
+  font-size: clamp(2rem, 2.6vw, 3rem);
+  margin: 0;
+}
+
+.lead {
+  font-size: 1.05rem;
+  max-width: 520px;
+}
+
+.hero-card {
+  background: #fff7ed;
+  border-radius: 20px;
+  padding: 18px 20px;
+  display: grid;
+  gap: 12px;
+  box-shadow: var(--shadow);
+}
+
+.label {
+  font-size: 0.8rem;
+  color: rgba(26, 26, 26, 0.5);
+  margin-bottom: 4px;
+}
+
+.value {
+  font-weight: 600;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.panel {
+  background: rgba(255, 255, 255, 0.82);
+  border-radius: 24px;
+  padding: 24px 24px 18px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(8px);
+  animation: fadeInUp 0.7s ease;
+}
+
+.panel-header h2 {
+  font-family: "Fraunces", serif;
+  margin: 0 0 8px;
+}
+
+.panel-header p {
+  margin: 0 0 18px;
+  color: rgba(26, 26, 26, 0.6);
+}
+
+.steps {
+  display: grid;
+  gap: 16px;
+}
+
+.steps div {
+  padding: 12px 14px;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 10px 30px rgba(26, 26, 26, 0.08);
+}
+
+.steps span {
+  font-weight: 700;
+  color: var(--olive);
+}
+
+.form {
+  display: grid;
+  gap: 12px;
+}
+
+.form label {
+  display: grid;
+  gap: 8px;
+  font-weight: 500;
+}
+
+.quantity-field {
+  display: grid;
+  gap: 8px;
+  font-weight: 500;
+}
+
+.quantity-control {
+  display: grid;
+  grid-template-columns: 52px 1fr 52px;
+  align-items: center;
+  border-radius: 14px;
+  border: 1px solid rgba(26, 26, 26, 0.15);
+  background: #fff;
+  overflow: hidden;
+}
+
+.quantity-control button {
+  height: 44px;
+  border-radius: 0;
+  box-shadow: none;
+  font-size: 1.1rem;
+  color: var(--olive);
+}
+
+.quantity-control button:hover {
+  transform: none;
+}
+
+.quantity-input {
+  border: none;
+  outline: none;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0;
+  background: transparent;
+}
+
+.form input,
+.form select {
+  border-radius: 12px;
+  border: 1px solid rgba(26, 26, 26, 0.15);
+  padding: 12px 14px;
+  font-size: 0.95rem;
+}
+
+.price-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 2px;
+  font-size: 0.95rem;
+  color: rgba(26, 26, 26, 0.7);
+}
+
+.price-row.total {
+  background: #f7efe2;
+  border-radius: 12px;
+  padding: 8px 12px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.primary {
+  width: 100%;
+}
+
+.form .primary {
+  margin-top: 6px;
+}
+
+.error {
+  background: #fff1f0;
+  color: #bb2d2d;
+  padding: 10px 14px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+
+.soldout {
+  background: #fff3cd;
+  color: #8a5b12;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+.payment {
+  display: grid;
+  gap: 16px;
+}
+
+.payment-card {
+  background: #fff;
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow: 0 12px 26px rgba(26, 26, 26, 0.08);
+}
+
+.payment-card.light {
+  background: #fff7ed;
+}
+
+.account {
+  display: grid;
+  gap: 10px;
+  margin: 14px 0;
+}
+
+.account div {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+}
+
+.account span {
+  color: rgba(26, 26, 26, 0.6);
+  font-weight: 500;
+}
+
+.hint {
+  background: rgba(92, 90, 58, 0.1);
+  padding: 10px 12px;
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+.warning {
+  margin-top: 12px;
+  background: #ffe6d6;
+  color: #8a3b12;
+  padding: 12px 14px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.pill {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: rgba(92, 90, 58, 0.15);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.pill.paid {
+  background: rgba(46, 164, 79, 0.18);
+  color: #136f35;
+}
+
+.pill.picked {
+  background: rgba(25, 118, 210, 0.18);
+  color: #1257a6;
+}
+
+.complete {
+  display: grid;
+  gap: 16px;
+}
+
+.complete-card {
+  background: #fff;
+  border-radius: 18px;
+  padding: 20px;
+  box-shadow: 0 12px 26px rgba(26, 26, 26, 0.08);
+}
+
+.order-code {
+  font-family: "Fraunces", serif;
+  font-size: 1.5rem;
+  padding: 12px 14px;
+  margin: 12px 0;
+  border-radius: 14px;
+  background: #f1d9b6;
+  display: inline-block;
+}
+
+.lookup {
+  display: grid;
+  gap: 16px;
+}
+
+.lookup-result {
+  background: #fff7ed;
+  border-radius: 16px;
+  padding: 16px;
+}
+
+.admin {
+  display: grid;
+  gap: 20px;
+}
+
+.admin-auth {
+  display: grid;
+  gap: 12px;
+}
+
+.admin-auth-card {
+  background: #fff7ed;
+  border-radius: 18px;
+  padding: 18px;
+  display: grid;
+  gap: 16px;
+  box-shadow: 0 12px 26px rgba(26, 26, 26, 0.08);
+}
+
+.admin-auth-header h3 {
+  margin: 0 0 6px;
+}
+
+.admin-auth-header p {
+  margin: 0;
+  color: rgba(26, 26, 26, 0.6);
+}
+
+.admin-auth-fields {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.admin-auth-fields label {
+  display: grid;
+  gap: 8px;
+  font-weight: 500;
+}
+
+.admin-auth-fields input {
+  border-radius: 12px;
+  border: 1px solid rgba(26, 26, 26, 0.15);
+  padding: 12px 14px;
+  font-size: 0.95rem;
+}
+
+.admin-list {
+  display: grid;
+  gap: 14px;
+}
+
+.admin-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  box-shadow: 0 12px 26px rgba(26, 26, 26, 0.08);
+}
+
+.admin-card h3 {
+  margin: 0 0 6px;
+}
+
+.admin-actions {
+  display: grid;
+  gap: 10px;
+  justify-items: end;
+  align-content: center;
+  min-width: 120px;
+}
+
+.paid-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  color: rgba(26, 26, 26, 0.75);
+}
+
+.paid-toggle input {
+  width: 18px;
+  height: 18px;
+  accent-color: #2ea44f;
+}
+
+.empty {
+  color: rgba(26, 26, 26, 0.6);
+}
+
+.footer {
+  margin-top: 40px;
+  text-align: center;
+  color: rgba(26, 26, 26, 0.5);
+}
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(26, 26, 26, 0.4);
+  display: grid;
+  place-items: center;
+  z-index: 10;
+  padding: 20px;
+}
+
+.modal {
+  background: #fff;
+  border-radius: 18px;
+  padding: 20px;
+  width: min(420px, 92vw);
+  box-shadow: var(--shadow);
+  display: grid;
+  gap: 12px;
+}
+
+.modal h3 {
+  margin: 0;
+}
+
+.modal p {
+  margin: 0;
+  color: rgba(26, 26, 26, 0.7);
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 900px) {
+  .content {
+    grid-template-columns: 1fr;
+  }
+
+  .topbar {
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .topbar-actions {
+    width: 100%;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
+  button {
+    width: 100%;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+  }
+
+  .admin-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .admin-auth-fields {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-actions {
+    justify-items: start;
+  }
+}
+
+@media (max-width: 600px) {
+  .page {
+    padding: 24px 5vw 36px;
+  }
+
+  .topbar-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-card {
+    padding: 16px;
+  }
+
+  .panel {
+    padding: 18px;
+  }
+
+  .form input,
+  .form select,
+  .admin-auth-fields input {
+    font-size: 0.9rem;
+  }
+
+  .payment-card,
+  .complete-card,
+  .lookup-result {
+    padding: 16px;
+  }
+
+  .admin-actions {
+    width: 100%;
+    justify-items: stretch;
+  }
+
+  .paid-toggle {
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .modal-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
