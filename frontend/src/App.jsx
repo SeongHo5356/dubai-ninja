@@ -2,12 +2,13 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import "./App.css";
 
 const API_BASE = import.meta.env.VITE_API_BASE || "http://localhost:3001";
-const PRICE = 4900;
+const parsedPrice = Number(import.meta.env.VITE_PRICE);
+const PRICE = Number.isFinite(parsedPrice) ? parsedPrice : 4900;
 
 const ACCOUNT_INFO = {
-  bank: "카카오뱅크",
-  number: "3333-02-1234567",
-  holder: "두바이쫀득쿠키",
+  bank: import.meta.env.VITE_ACCOUNT_BANK || "카카오뱅크",
+  number: import.meta.env.VITE_ACCOUNT_NUMBER || "3333-02-1234567",
+  holder: import.meta.env.VITE_ACCOUNT_HOLDER || "두바이쫀득쿠키",
 };
 
 const STATUS_LABELS = {
